@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RestWithASP_Net.Services;
+using RestWithASP_Net.Services.Implementations;
 //using Microsoft.Extensions.Logging;
 //using Microsoft.Extensions.Options;
 
@@ -24,6 +26,9 @@ namespace RestWithASP_Net
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Dependency Injection
+            services.AddScoped<IPersonService, PersonServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
